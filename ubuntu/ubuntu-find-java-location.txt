@@ -1,0 +1,21 @@
+## Find Java Location
+
+whereis java
+java: /usr/bin/java /etc/java /usr/share/java
+
+That tells the command java resides in /usr/bin/java.
+
+Dig again:
+
+Step 2:
+
+$ ls -l /usr/bin/java
+lrwxrwxrwx 1 root root /usr/bin/java -> /etc/alternatives/java
+So, now we know that /usr/bin/java is actually a symbolic link to /etc/alternatives/java.
+
+Dig deeper using the same method above:
+
+Step 3:
+
+$ ls -l /etc/alternatives/java
+lrwxrwxrwx 1 root root /etc/alternatives/java -> /usr/lib/jvm/msopenjdk-17-amd64/bin/java
